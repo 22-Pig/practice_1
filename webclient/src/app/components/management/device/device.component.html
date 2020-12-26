@@ -1,0 +1,178 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2 text-info">设备管理</h1>
+</div>
+
+<ng-template #template_add>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">添加面板</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="devForm">
+            <div class="form-group">
+                <label for="id">ID号</label>
+                <input type="text" class="form-control" id="id" name="id" [formControl]='id'
+                    [ngClass]="{'is-invalid': id.invalid,'is-valid':id.valid}">
+                <div class="valid-feedback">
+                    ID号格式正确！
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="id.hasError('required')">ID号必须填写！</span>
+                    <span *ngIf="!id.hasError('required') && id.hasError('invalidId')">ID号必须是数字！</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type">类型</label>
+                <input type="text" class="form-control" id="type" name="type" [formControl]='type'>
+            </div>
+            <div class="form-group">
+                <label for="name">设备名</label>
+                <input type="text" class="form-control" id="name" name="name" [formControl]='name'>
+            </div>
+            <div class="form-group">
+                <label for="descr">描述</label>
+                <input type="text" class="form-control" id="descr" name="descr" [formControl]='descr'>
+            </div>
+        </form>
+        <button type="button" class="btn btn-success btn-lg btn-block" (click)="add();modalRef.hide()">添加</button>
+    </div>
+</ng-template>
+
+<ng-template #template_delete>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">确定要删除吗？</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <button type="button" class="btn btn-danger btn-lg btn-block" (click)="delete();modalRef.hide()">确定</button>
+            <button type="button" class="btn btn-light btn-lg  btn-block" (click)="modalRef.hide()">取消</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #template_update>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">修改面板</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide() ">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="devForm">
+            <div class="form-group">
+                <label for="id">ID号</label>
+                <input type="text" class="form-control" id="id" name="id" [formControl]='id'
+                    [ngClass]="{'is-invalid': id.invalid,'is-valid':id.valid}">
+                <div class="valid-feedback">
+                    ID号格式正确！
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="id.hasError('required')">ID号必须填写！</span>
+                    <span *ngIf="!id.hasError('required') && id.hasError('invalidId')">ID号必须是数字！</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type">类型</label>
+                <input type="text" class="form-control" id="type" name="type" [formControl]='type'>
+            </div>
+            <div class="form-group">
+                <label for="name">设备名</label>
+                <input type="text" class="form-control" id="name" name="name" [formControl]='name'>
+            </div>
+            <div class="form-group">
+                <label for="descr">描述</label>
+                <input type="text" class="form-control" id="descr" name="descr" [formControl]='descr'>
+            </div>
+        </form>
+        <button type="button" class="btn btn-warning btn-lg btn-block" (click)="update();modalRef.hide()">修改</button>
+    </div>
+</ng-template>
+
+<ng-template #template_search>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">查询面板</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="devForm">
+            <div class="form-group">
+                <label for="id">请输入你要查询的ID号：</label>
+                <input type="text" class="form-control" id="id" name="id" [formControl]='id'>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="search();modalRef.hide()">查询</button>
+    </div>
+</ng-template>
+
+
+
+
+<div class="my-3 p-3 bg-white rounded shadow-sm div">
+    <div class="text-center">
+        <h4>数据表映射<span class="badge badge-secondary">New</span></h4>
+    </div>
+    <div>
+        <div>
+            <table id="devTable" class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID号</th>
+                        <th scope="col">类型</th>
+                        <th scope="col">设备名</th>
+                        <th scope="col">描述</th>
+                        <!-- <th scope="col">园区名</th>
+                        <th scope="col">园区位置</th> -->
+                        <th scope="col">选中状态</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- (click)="select(dev)" -->
+                    <tr *ngFor='let dev of devs$ | async;' (click)="select(dev)">
+                        <th scope="row">{{dev.id}}</th>
+                        <!-- <td>{{dev.id}}</td> -->
+                        <td>{{dev.type}}</td>
+                        <td>{{dev.name}}</td>
+                        <td>{{dev.descr}}</td>
+                        <!-- <td>{{place.pname}}</td>
+                        <td>{{place.pnum}}</td> -->
+                        <td><input type="radio" class="form-check-input" id="exampleCheck1"
+                                name="option1"><label>选中</label></td>
+                        <td>
+                            <!-- (click)="openModal(template_delete)" -->
+                            <input type="button" class="btn btn-outline-danger" value="删除"
+                                (click)="openModal(template_delete)" style="border: none;text-decoration:underline">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center" id="page">
+                </ul>
+            </nav>
+        </div> -->
+    </div>
+    <!-- 功能实现区域 -->
+    <div class="text-center">
+        <div class="col-auto my-1">
+            <button class="btn btn-success" (click)="openModal(template_add)">新增</button>
+            <!-- <button class="btn btn-dark btn-sm" onclick="searchDev()">筛选</button> -->
+            <button class="btn btn-warning" (click)="openModal(template_update)">修改</button>
+            <button class="btn btn-primary" (click)="openModal(template_search)">查询</button>
+            <!-- <button class="btn btn-warning btn-sm" onclick="queryDevice()">查询所有</button> -->
+        </div>
+        <!-- (click)=" openModal(template_search)">查询
+            (click)=" openModal(template_add)">添加
+            (click)="openModal(template_update)">修改
+            (click)="searchall()">查询所有 -->
+    </div>
+</div>

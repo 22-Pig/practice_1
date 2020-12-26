@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2 text-info">设备详情</h1>
+</div>
+
+<main role="main" class="container">
+    <div class="my-3 p-3 bg-white rounded shadow-sm div">
+        <div class="d-flex justify-content-center">
+            <img src="{{(led$ | async)?.status == 1?'/assets/img/led1.png':'/assets/img/led0.png'}}" alt="">
+        </div>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-outline-success" (click)="turnOn()">打开</a>
+            <a class="btn btn-outline-danger" (click)="turnOff()">关闭</a>
+            <a class="btn btn-outline-warning" (click)="click()">刷新</a>
+        </div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm div">
+        <div class="d-flex justify-content-center">
+            <img src="{{(fan$ | async)?.fanstatus == 1?'/assets/img/fan1.png':'/assets/img/fan0.png'}}" alt="">
+        </div>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-outline-success" (click)="turnOnFan()">打开</a>
+            <a class="btn btn-outline-danger" (click)="turnOffFan()">关闭</a>
+        </div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm div">
+        <div class="d-flex justify-content-center">
+            <img src="{{(mot$ | async)?.motstatus == 1?'/assets/img/mot1.png':'/assets/img/mot0.png'}}" alt="">
+        </div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm div">
+        <div echarts [options]="chartOptionTemp" [merge]="updateOptionTemp" class="demo-chart"></div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm div">
+        <div echarts [options]="chartOptionHumd" [merge]="updateOptionHumd" class="demo-chart"></div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm div">
+        <div echarts [options]="chartOptionSmoke" [merge]="updateOptionSmoke" class="demo-chart"></div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm div">
+        <div class="form-group" *ngFor="let display of displayTemp$ | async">
+            <p>设备类型：{{displayList((display.type))}}</p>
+        </div>
+        <div class="form-group" *ngFor="let display of displayHumd$ | async">
+            <p>设备类型：{{displayList((display.type))}}</p>
+        </div>
+        <div class="form-group" *ngFor="let display of displayLed$ | async">
+            <p>设备类型：{{displayList((display.type))}}</p>
+        </div>
+    </div>
+</main>

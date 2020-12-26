@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>查询面板</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button class="show-back-button" (click)="doClose()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item-group>
+    <ion-item>
+      <ion-label position="floating">请输入需要查询的用户名</ion-label>
+      <ion-input type="text" id="username" name="username" [(ngModel)]="username"></ion-input>
+    </ion-item>
+  </ion-item-group>
+  <ion-button color="primary" expand="block" (click)="search();doClose()">查询</ion-button>
+</ion-content>

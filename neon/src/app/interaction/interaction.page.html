@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>interaction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img src="{{(led$ | async)?.status == 1?'/assets/img/led1.png':'/assets/img/led0.png'}}"></ion-img>
+  <ion-toolbar>
+    <ion-title>光线</ion-title>
+  </ion-toolbar>
+  <div>
+    <ion-button color="secondary" (click)="luminance()">使用</ion-button>
+    <ion-button color="success" (click)="closeall();getLight()">查询</ion-button>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          time
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          illumination
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor='let luminance of luminance$ | async'>
+    <ion-row>
+      <ion-col>
+        <div>
+          {{luminance.time}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{luminance.illumination}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-toolbar>
+    <ion-title>距离</ion-title>
+  </ion-toolbar>
+  <div>
+    <ion-button color="secondary" (click)="distance()">使用</ion-button>
+    <ion-button color="success" (click)="closeall();getDistance()">查询</ion-button>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          time
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          distance
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor='let distance of distance$ | async'>
+    <ion-row>
+      <ion-col>
+        <div>
+          {{distance.time}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{distance.distance}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

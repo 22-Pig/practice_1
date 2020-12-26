@@ -1,0 +1,132 @@
+<!-- <div>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0 font-weight-bold">浙江机电职业技术学院</a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <div class="btn-group mr-3">
+                    <button type="button" class="btn btn-outline-light ">你好！{{name}}</button>
+                    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-light" [routerLink]="['/login']">退出</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar" style="background-color: rgb(225, 230, 215);">
+            <div class="sidebar-sticky">
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Smart Toilet Menu</span>
+                    <a class="d-flex align-items-center text-muted" aria-label="Add a new report">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-plus-circle">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['information']">
+                            <img src="/assets/img/activity.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary">设备信息</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['detail']">
+                            <img src="/assets/img/dynamic_fill.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary">设备详情</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['device']">
+                            <img src="/assets/img/decoration_fill.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary">设备管理</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['user']">
+                            <img src="/assets/img/group.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary ">用户管理</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div> -->
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">浙江机电职业技术学院</a>
+    <ul class="nav justify-content-end px-3">
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-dark">你好！{{name}}</button>
+            <button type="button" class="btn btn-dark text-light" [routerLink]="['/login']">切换账户</button>
+        </div>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Smart Toilet Menu</span>
+                    <a class="d-flex align-items-center text-muted" aria-label="Add a new report">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-plus-circle">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['info']">
+                            <img src="/assets/img/activity.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary">设备信息</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['detail']">
+                            <img src="/assets/img/dynamic_fill.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary">设备详情</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['device']">
+                            <img src="/assets/img/decoration_fill.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary">设备管理</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['user']">
+                            <img src="/assets/img/group.svg" style="width: 25px; margin-right: 5px;">
+                            <button type="button" class="btn btn-secondary ">用户管理</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['user']">
+                            <!-- <button type="button" class="btn btn-secondary ">用户管理</button> -->
+                            <img src="/assets/img/qr.png" style="width: 250px">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>

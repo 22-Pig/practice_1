@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      设备信息
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor='let info of infos$| async;' style=text-align:center>
+    <ion-card-header>
+      <ion-card-title>{{info.name}}</ion-card-title>
+      <img src="{{deviceIcon((info.type))}}">
+    </ion-card-header>
+    <ion-card-content>
+      <h5 class="card-title">ID号：{{info.id}}</h5>
+      <p class="card-text"><small class="text-muted">备注：{{info.descr}}</small></p>
+      <ion-button color="primary" [routerLink]="['/tab2']" routerLinkActive="router-link-active">查看详情</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

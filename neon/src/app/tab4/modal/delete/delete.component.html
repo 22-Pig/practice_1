@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>删除面板</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button class="show-back-button" (click)="doClose()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-button color="danger" (click)="delete();doClose()" expand="block">
+    确定删除
+  </ion-button>
+  <ion-button color="medium" (click)="doClose()" expand="block">
+    取消
+  </ion-button>
+</ion-content>

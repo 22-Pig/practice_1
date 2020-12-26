@@ -1,0 +1,31 @@
+/* h1 {
+    margin: 1rem 0 0 2rem;
+} */
+
+ion-slide {
+    margin: 1rem 0 -38rem 0;
+}
+
+
+.item {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+
+.list-ios .item-block .item-inner{
+
+    border-bottom-width: 1px !important;
+    
+    }
+
+ion-item{
+    padding :false;
+}
+.box{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    background-color:red;
+}

@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+  <div class="box" style="background: url(../../../../assets/icon/background.jpg) ;background-size: cover;">
+    <br> <br> <br> <br> <br> <br>
+    <div style="text-align: center">
+      <h1>登录界面</h1>
+      <br>
+    </div>
+    <div id="container">
+      <form style="margin: 1rem 1rem 1rem 1rem;  background:rgba(255, 255, 255, 0) ">
+        <div style=" background:rgba(255, 255, 255, 0)">
+          <ion-item style=" background:rgba(255, 255, 255, 0);padding: 0rem;">
+            <ion-label position="floating" style=" background:rgba(255, 255, 255, 0)">用户名 <ion-text color="danger">*
+              </ion-text>
+            </ion-label>
+            <ion-input type="text" id="username" name="username" [(ngModel)]="username"
+              style=" background:rgba(255, 255, 255, 0)"></ion-input>
+          </ion-item>
+          <br>
+          <ion-item style=" background:rgba(255, 255, 255, 0);padding: 0rem">
+            <ion-label position="floating">密码 <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="password" id="password" name="password" [(ngModel)]="password"> </ion-input>
+          </ion-item>
+        </div>
+        <br>
+        <ion-button expand="full" color="danger" style="padding: 0; margin: 0;" (click)='login()'>登录</ion-button>·
+        <br>
+        <div style="text-align: center;">
+          <span style="color: black;">还没有账户？</span>
+          <a style="color: blue;text-decoration:none;font-size:large;" (click)="showConfirm()">马上注册</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

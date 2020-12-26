@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      用户管理
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style=text-align:center>
+  <ion-button size="small" color="success" (click)="addModal()">新增</ion-button>
+  <ion-button size="small" color="warning" (click)="updateModal()">修改</ion-button>
+  <ion-button size="small" color="primary" (click)="searchModal()">查询</ion-button>
+  <div class="my-3 p-3 bg-white rounded shadow-sm div">
+    <div class="text-center">
+      <h5>数据表映射<span class="badge badge-secondary">New</span></h5>
+    </div>
+    <div>
+      <table id="userTable" class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th scope="col">ID号</th>
+            <th scope="col">用户名</th>
+            <th scope="col">密码</th>
+            <th scope="col">备注</th>
+            <th scope="col">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let user of users$ | async;' (click)="select(user)">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.message}}</td>
+            <td>
+              <ion-button color="danger" size="small" (click)="deleteModal()">删除</ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>

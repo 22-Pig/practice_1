@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab1"></ion-back-button>
+    </ion-buttons> -->
+    <ion-title>
+      设备详情
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <div echarts [options]="chartOption" class="demo-chart"></div> -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>男厕灯</ion-card-title>
+      <ion-img src="{{(led$ | async)?.status == 1?'/assets/img/led1.png':'/assets/img/led0.png'}}"></ion-img>
+    </ion-card-header>
+
+    <ion-card-content style=text-align:center>
+      <ion-row>
+        <ion-col class="ion-align-self-start">
+          <ion-button color="success" (click)="turnOn()">打开</ion-button>
+        </ion-col>
+        <ion-col class="ion-align-self-end">
+          <ion-button color="danger" (click)="turnOff()">关闭</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>排气扇</ion-card-title>
+      <ion-img src="{{(fan$ | async)?.fanstatus == 1?'/assets/img/fan1.png':'/assets/img/fan0.png'}}"></ion-img>
+    </ion-card-header>
+
+    <ion-card-content style=text-align:center>
+      <ion-row>
+        <ion-col class="ion-align-self-start">
+          <ion-button color="success" (click)="turnOnFan()">打开</ion-button>
+        </ion-col>
+        <ion-col class="ion-align-self-end">
+          <ion-button color="danger" (click)="turnOffFan()">关闭</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>运动传感器</ion-card-title>
+      <ion-img src="{{(mot$ | async)?.motstatus == 1?'/assets/img/mot1.png':'/assets/img/mot0.png'}}"></ion-img>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>温度传感器</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div style="height:500px;" echarts [options]="chartOptionTemp" [merge]="updateOptionTemp" class="demo-chart"></div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>湿度传感器</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div style="height:500px;" echarts [options]="chartOptionHumd" [merge]="updateOptionHumd" class="demo-chart"></div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>烟雾传感器</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div style="height:500px;" echarts [options]="chartOptionSmoke" [merge]="updateOptionSmoke" class="demo-chart">
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab2"></ion-back-button>
+    </ion-buttons> -->
+    <ion-title>
+      设备管理
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style=text-align:center>
+  <ion-button size="small" color="success" (click)="addModal()">新增</ion-button>
+  <ion-button size="small" color="warning" (click)="updateModal()">修改</ion-button>
+  <ion-button size="small" color="primary" (click)="searchModal()">查询</ion-button>
+  <div class="my-3 p-3 bg-white rounded shadow-sm div">
+    <div class="text-center">
+      <h5>数据表映射<span class="badge badge-secondary">New</span></h5>
+    </div>
+    <div>
+      <table id="devTable">
+        <thead>
+          <tr>
+            <th scope="col">ID号</th>
+            <th scope="col">类型</th>
+            <th scope="col">设备名</th>
+            <th scope="col">描述</th>
+            <th scope="col">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let dev of devs$ | async;' (click)="select(dev)">
+            <th scope="row">{{dev.id}}</th>
+            <td>{{dev.type}}</td>
+            <td>{{dev.name}}</td>
+            <td>{{dev.descr}}</td>
+            <td>
+              <ion-button color="danger" size="small" (click)="deleteModal()">删除</ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>
