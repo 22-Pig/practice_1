@@ -20,7 +20,6 @@ import { Tab4Service } from '../services/tab4.service';
 export class Tab4Page implements OnInit {
 
   users$: Observable<User>;
-  baseUrl = 'http://192.168.134.58:8080/';
   currentUser: User;
   public username: string;
   constructor(public modalController: ModalController, private httpclient: HttpClient, private tab4Service: Tab4Service) { }

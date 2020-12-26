@@ -14,7 +14,6 @@ export class UpdateComponent implements OnInit {
   name: string;
   value: string = '0';
   descr: string;
-  baseUrl = 'http://192.168.134.58:8080/';
   constructor(private tab3Service: Tab3Service, public navParams: NavParams, private httpclient: HttpClient) { }
 
   ngOnInit() { }

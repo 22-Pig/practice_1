@@ -18,7 +18,7 @@ export class InteractionPage implements OnInit {
   distance$: Observable<Distance>
   led$ = null;
   lightValue: number;
-  baseUrl = 'http://192.168.134.58:8080/';
+  baseUrl = 'http://127.0.0.1:8080/';
 
   MAX_LIGHT_VALUE = 200;
   MIN_LIGHT_VALUE = 100;

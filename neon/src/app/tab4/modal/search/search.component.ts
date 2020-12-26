@@ -13,7 +13,6 @@ export class SearchComponent implements OnInit {
 
   username: string;
   users$: Observable<User>;
-  baseUrl = 'http://192.168.134.58:8080/';
   constructor(private tab4Service: Tab4Service, public navParams: NavParams, private httpclient: HttpClient) { }
 
   ngOnInit() { }

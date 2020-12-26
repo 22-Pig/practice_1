@@ -10,7 +10,6 @@ import { Tab3Service } from '../../../services/tab3.service';
 })
 export class DeleteComponent implements OnInit {
 
-  baseUrl = 'http://192.168.134.58:8080/';
   // did: string;
   // did = String(this.navParams.data.value);
   constructor(private tab3Service: Tab3Service, public navParams: NavParams, private httpclient: HttpClient) {

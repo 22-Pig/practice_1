@@ -20,18 +20,12 @@ import { Tab3Service } from '../services/tab3.service';
 export class Tab3Page {
 
   devs$: Observable<Dev>;
-  baseUrl = 'http://192.168.134.58:8080/';
   currentUser: Dev;
   public did: string;
   constructor(public modalController: ModalController, private httpclient: HttpClient, private tab3Service: Tab3Service) {
 
   }
   ngOnInit(): void {
-    // this.devs$ = <Observable<Dev>>this.httpclient.get(this.baseUrl + 'searchAllDev');
-    /* setInterval(() => {
-      this.devs$ = <Observable<Dev>>this.httpclient.get(this.baseUrl + 'searchAllDev');
-      console.log('123');
-    }, 5000) */
     this.devs$ = <Observable<Dev>>this.tab3Service.searchall();
   }
 

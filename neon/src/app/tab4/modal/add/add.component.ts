@@ -19,7 +19,6 @@ export class AddComponent implements OnInit {
   password: string;
   message: string;
   users$: Observable<User>;
-  baseUrl = 'http://192.168.134.58:8080/';
   currentUser: User;
 
   constructor(private tab4Service: Tab4Service, public navParams: NavParams, private httpclient: HttpClient, private fb: FormBuilder) {

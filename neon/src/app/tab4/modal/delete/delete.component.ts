@@ -9,8 +9,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DeleteComponent implements OnInit {
 
-  baseUrl = 'http://192.168.134.58:8080/';
-
   constructor(private tab4Service: Tab4Service, public navParams: NavParams, private httpclient: HttpClient) { }
 
   ngOnInit() { }

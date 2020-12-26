@@ -1,8 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
 
-import { FormBuilder, FormGroup, AbstractControl, Validators, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Observable, timer } from 'rxjs';
 import { Dev } from '../../Dev';
 import { Tab3Service } from '../../../services/tab3.service';
@@ -20,10 +19,9 @@ export class AddComponent implements OnInit {
   value: string = '0';
   descr: string;
   devs$: Observable<Dev>;
-  baseUrl = 'http://192.168.134.58:8080/';
   currentUser: Dev;
 
-  constructor(private tab3Service: Tab3Service, public navParams: NavParams, private fb: FormBuilder, private httpclient: HttpClient) {
+  constructor(private tab3Service: Tab3Service, public navParams: NavParams, private httpclient: HttpClient) {
     // console.log(this.navParams.data.value);
   }
 
@@ -42,7 +40,7 @@ export class AddComponent implements OnInit {
         if (val.succ) { // val是服务器返回的值
           alert('添加成功!');
         }
-        else{
+        else {
           alert('添加失败!');
         }
       }
